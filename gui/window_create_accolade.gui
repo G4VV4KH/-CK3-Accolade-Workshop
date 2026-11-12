@@ -1,0 +1,789 @@
+﻿######################################################
+################# CREATE ACCOLADE VIEW ###################
+######################################################
+
+window = {
+	name = "create_accolade_view"
+	size = { 540 865 }
+	parentanchor = top|right
+	position = { -626 170 }
+	movable = no
+	layer = middle
+	datacontext = "[CreateAccoladeView.AccessMilitaryView]"
+	datacontext = "[CreateAccoladeView.AccessKnightsView]"
+
+	using = Window_Background_Subwindow
+
+	state = {
+		name = _show
+		on_start = "[GetVariableSystem.Clear( 'aw_ui_selected_type' )]"
+		on_start = "[GetVariableSystem.Set( 'aw_ui_creation_mode', 'choice' )]"
+		using = Animation_FadeIn_Quick
+
+		position = { -626 170 }
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+
+		position_x = -570
+	}
+
+	vbox = {
+		name = "create_accolade_tutorial_uses_this"
+		widgetid = "create_accolade_tutorial_uses_this"
+		size = { 530 855 }
+		layoutpolicy_horizontal = fixed
+		layoutpolicy_vertical = fixed
+		maximumsize = { 530 855 }
+		margin = { 5 5 }
+
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "header_text"
+			{
+				text = "CREATE_ACCOLADE"
+			}
+
+			blockoverride "button_back"
+			{
+				onclick = "[CreateAccoladeView.Close]"
+				onclick = "[OpenGameView( 'knights' )]"
+				texture = "gfx/interface/icons/flat_icons/window_back.dds"
+				tooltip = "BACK_TOOLTIP"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[CreateAccoladeView.Close]"
+			}
+		}
+
+		hbox = {
+			visible = "[CreateAccoladeView.GetSelectedKnight.IsValid]"
+			layoutpolicy_horizontal = expanding
+			margin = { 15 0 }
+
+			widget = {
+				size = { 145 160 }
+
+				accolade_banner_dark = {
+					size = { 100% 100% }
+				}
+
+				portrait_shoulders = {
+					datacontext = "[CreateAccoladeView.GetSelectedKnight]"
+					parentanchor = center
+				}
+			}
+
+			vbox = {
+				visible = "[CreateAccoladeView.GetSelectedKnight.IsValid]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				margin = { 15 5 }
+
+				background = {
+					using = Background_Area
+
+					margin = { 0 -5 }
+				}
+
+				hbox = {
+					spacing = 5
+					layoutpolicy_horizontal = expanding
+
+					margin = { 0 10 }
+
+					background = {
+						using = Background_Area_Dark
+						alpha = 0.6
+						margin = { 15 0 }
+					}
+
+					text_single = {
+						visible = "[Not( CreateAccoladeView.IsRenaming )]"
+						text = "[CreateAccoladeView.GetAccoladeName]"
+						max_width = 285
+						using = Font_Size_Medium
+						align = nobaseline
+					}
+
+					button_edit_text = {
+						size = { 25 25 }
+						visible = "[Not( CreateAccoladeView.IsRenaming )]"
+						onclick = "[CreateAccoladeView.ToggleRenaming]"
+						tooltip = "RENAME_ACCOLADE"
+					}
+
+					editbox_standard = {
+						layoutpolicy_horizontal = expanding
+						visible = "[CreateAccoladeView.IsRenaming]"
+
+						blockoverride "editbox_properties"
+						{
+							name = "accolade_name"
+							text = "[CreateAccoladeView.GetTempName]"
+							ontextedited = "[CreateAccoladeView.EditName]"
+							onreturnpressed = "[CreateAccoladeView.SubmitName]"
+						}
+					}
+
+					expand = {}
+				}
+
+				hbox = {
+					name = "candidate_attributes_tutorial_uses_this"
+					widgetid = "candidate_attributes_tutorial_uses_this"
+					layoutpolicy_horizontal = expanding
+					margin_top = 5
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 10
+
+						accolade_type_box = {
+							datacontext = "[CreateAccoladeView.GetSelectedInitialType]"
+
+							blockoverride "subtitle_text"
+							{
+								text = "ACCOLADE_TYPE"
+							}
+
+							blockoverride "change_button"
+							{
+								icon = {
+									visible = "[AccoladeType.GetMaaUnlock.IsValid]"
+									datacontext = "[AccoladeType.GetMaaUnlock]"
+									texture = "[MenAtArmsType.GetIcon]"
+									tooltipwidget = {
+										widget_maa_type_container_tooltip = {
+											blockoverride "maa_texture"
+											{
+												texture = "[MenAtArmsType.GetHorizontalImageForCulture( GetPlayer.GetCulture )]"
+											}
+										}
+									}
+									size = { 30 30 }
+								}
+							}
+						}
+					}
+				}
+
+				expand = {}
+
+				hbox = {
+					visible = "[CreateAccoladeView.GetSelectedKnight.IsGuest]"
+					layoutpolicy_horizontal = expanding
+
+					button_standard = {
+						visible = "[CreateAccoladeView.GetSelectedKnight.IsPlayerInteractionShown('recruit_guest_interaction')]"
+						enabled = "[CreateAccoladeView.GetSelectedKnight.IsPlayerInteractionValid('recruit_guest_interaction')]"
+						onclick = "[CreateAccoladeView.GetSelectedKnight.OpenPlayerInteraction('recruit_guest_interaction')]"
+						text = "[CreateAccoladeView.GetSelectedKnight.GetPlayerInteractionName('recruit_guest_interaction')]"
+						tooltip = "[CreateAccoladeView.GetSelectedKnight.GetPlayerInteractionTooltip('recruit_guest_interaction')]"
+						using = tooltip_se
+					}
+				}
+				hbox = {
+					visible = "[Not( CreateAccoladeView.GetSelectedKnight.IsGuest )]"
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightForced( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightForced]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightForced]"
+
+						text = "KNIGHTS_VIEW_FORCE"
+
+						tooltip = "CREATE_ACCOLADE_FORCE_TT"
+						using = tooltip_se
+					}
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightDefault( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightDefault]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightDefault]"
+
+						text = "KNIGHTS_VIEW_ALLOW"
+
+						tooltip = "CREATE_ACCOLADE_BY_PROWESS_TT"
+						using = tooltip_se
+					}
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightDisallowed( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightDisallowed]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightDisallowed]"
+						enabled = "[Not( CreateAccoladeView.GetSelectedKnight.IsAcclaimedKnight )]"
+
+
+						text = "KNIGHTS_VIEW_FORBID"
+						tooltip = "[SelectLocalization( CreateAccoladeView.GetSelectedKnight.IsAcclaimedKnight, 'CANNOT_FORBID_ACCLAIMED_KNIGHT', 'CREATE_ACCOLADE_FORBID_TT' )]"
+						using = tooltip_se
+					}
+
+					expand = {}
+				}
+
+				expand = {}
+			}
+
+			vbox = {
+				visible = "[Not(CreateAccoladeView.GetSelectedKnight.IsValid)]"
+				layoutpolicy_horizontal = expanding
+				margin = { 10 0 }
+
+				text_multi = {
+					align = center
+					text = "CREATE_ACCOLADE_SELECT_KNIGHT"
+					default_format = "#help"
+					autoresize = yes
+					max_width = 300
+				}
+			}
+		}
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			margin = { 20 4 }
+			visible = "[CreateAccoladeView.GetSelectedKnight.IsValid]"
+
+			hbox = {
+				spacing = 10
+				margin = { 0 15 }
+
+				button_standard = {
+					size = { 200 40 }
+
+					name = "aw_final_cancel"
+					# Reinitialize native selection without hiding the window or changing its chosen method.
+					onclick = "[GetVariableSystem.Clear( 'aw_ui_selected_type' )]"
+					onclick = "[OpenGameViewData( 'create_accolade_view', MilitaryView.GetCharacter.GetID )]"
+					shortcut = "go_back"
+
+					text = "CANCEL"
+				}
+
+				button_primary = {
+					size = { 200 40 }
+					name = "aw_final_create"
+					enabled = "[CreateAccoladeView.CanCreateAccolade]"
+					onclick = "[CreateAccoladeView.CreateAccolade]"
+
+					tooltip = "[CreateAccoladeView.GetCreateAccoladeTooltip]"
+					text = "CREATE_ACCOLADE"
+				}
+			}
+		}
+
+		vbox = {
+			name = "aw_method_choice"
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'choice' ) )]"
+			size = { 490 0 }
+			layoutpolicy_horizontal = fixed
+			margin = { 20 20 }
+			spacing = 18
+			text_multi = {
+				name = "aw_method_help"
+				text = "aw_ui_choose_method"
+				size = { 490 0 }
+				max_width = 490
+				autoresize = yes
+			}
+			button_standard = {
+				name = "aw_choose_knight_mode"
+				size = { 490 44 }
+				text = "aw_ui_knight_first"
+				onclick = "[GetVariableSystem.Set( 'aw_ui_creation_mode', 'knights' )]"
+			}
+			text_multi = {
+				text = "aw_ui_knight_first_desc"
+				size = { 490 0 }
+				max_width = 490
+				autoresize = yes
+			}
+			button_standard = {
+				name = "aw_choose_attribute_mode"
+				size = { 490 44 }
+				text = "aw_ui_attribute_first"
+				onclick = "[GetVariableSystem.Set( 'aw_ui_creation_mode', 'attributes' )]"
+			}
+			text_multi = {
+				text = "aw_ui_attribute_first_desc"
+				size = { 490 0 }
+				max_width = 490
+				autoresize = yes
+			}
+		}
+		# The list pages fill the remaining height with their scrollbox. The method
+		# page needs its own bottom spacer so the header and choices stay at the top.
+		expand = {
+			name = "aw_method_choice_spacer"
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'choice' ) )]"
+		}
+		button_standard = {
+			name = "aw_back_to_methods"
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), Not( GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'choice' ) ) )]"
+			size = { 490 35 }
+			margin = { 20 8 }
+			text = "aw_ui_back_to_methods"
+			onclick = "[GetVariableSystem.Clear( 'aw_ui_selected_type' )]"
+			onclick = "[GetVariableSystem.Set( 'aw_ui_creation_mode', 'choice' )]"
+		}
+		text_label_center = {
+			visible = "[CreateAccoladeView.GetSelectedInitialType.IsValid]"
+			size = { 530 0 }
+			max_width = 530
+			text = "CREATE_ACCOLADE_TYPES"
+			default_format = "#medium"
+		}
+		text_label_center = {
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'knights' ) )]"
+			size = { 530 0 }
+			max_width = 530
+			text = "KNIGHTS_SUBHEADER"
+			default_format = "#medium"
+		}
+		text_label_center = {
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'attributes' ) )]"
+			size = { 530 0 }
+			max_width = 530
+			text = "aw_ui_attributes_header"
+			default_format = "#medium"
+		}
+
+		# Attribute-first catalogue. The native knight model also includes court guests.
+		# Counters are zero-size GUI models: no traits, character lists or state are
+		# copied into gameplay script, and mod-added attributes are included automatically.
+		vbox = {
+			name = "aw_attribute_help"
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'attributes' ) )]"
+			size = { 490 0 }
+			layoutpolicy_horizontal = fixed
+			margin = { 20 6 }
+			spacing = 8
+			text_multi = {
+				visible = "[Not( GetVariableSystem.Exists( 'aw_ui_selected_type' ) )]"
+				name = "aw_catalogue_help_text"
+				text = "aw_ui_choose_attribute"
+				size = { 490 0 }
+				max_width = 490
+				autoresize = yes
+			}
+			button_standard = {
+				name = "aw_back_to_types"
+				visible = "[GetVariableSystem.Exists( 'aw_ui_selected_type' )]"
+				size = { 490 35 }
+				text = "aw_ui_back_to_attributes"
+				onclick = "[GetVariableSystem.Clear( 'aw_ui_selected_type' )]"
+			}
+		}
+
+		scrollbox = {
+			name = "accolade_candidate_list_tutorial_uses_this"
+			size = { 530 100 }
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			visible = "[And( Not( CreateAccoladeView.GetSelectedKnight.IsValid ), GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'attributes' ) )]"
+			blockoverride "scrollbox_margins" { margin = { 20 10 } margin_right = 30 }
+			blockoverride "scrollbox_content" {
+				vbox = {
+					name = "aw_attribute_catalogue"
+					datamodel = "[GetAllAccoladeTypes]"
+					size = { 480 0 }
+					layoutpolicy_horizontal = fixed
+					item = {
+						vbox = {
+							name = "aw_type_row"
+							# Capture the outer type before nested native type models replace
+							# AccoladeType. This cache belongs only to the GUI variable system.
+							state = {
+								name = aw_capture_type_name
+								trigger_when = "[Not( GetVariableSystem.HasValue( Concatenate( 'aw_ui_type_name_', IntToString( PdxGuiWidget.GetIndexInDataModel ) ), AccoladeType.GetName ) )]"
+								on_start = "[GetVariableSystem.Set( Concatenate( 'aw_ui_type_name_', IntToString( PdxGuiWidget.GetIndexInDataModel ) ), AccoladeType.GetName )]"
+							}
+							size = { 480 0 }
+							layoutpolicy_horizontal = fixed
+							# Evaluate native membership outside the widgets it controls, so
+							# a hidden candidate cannot stop its own eligibility from updating.
+							hbox = {
+								name = "aw_roster_type_matches"
+								size = { 0 0 }
+								alwaystransparent = yes
+								datamodel = "[MilitaryView.GetKnights]"
+								item = {
+									hbox = {
+										name = "aw_native_type_match"
+										size = { 0 0 }
+										alwaystransparent = yes
+										datamodel = "[KnightsView.GetPotentialAccoladeTypes( Character.Self )]"
+										state = {
+											name = aw_capture_native_match
+											trigger_when = "[Not( GetVariableSystem.HasValue( Concatenate( Concatenate( Concatenate( 'aw_ui_type_match_', IntToString( PdxGuiWidget.AccessParent.AccessParent.GetIndexInDataModel ) ), '_' ), UIntToString( Character.GetID ) ), Select_CString( GreaterThan_int32( PdxGuiWidget.CountVisibleChildren, '(int32)0' ), 'yes', 'no' ) ) )]"
+											on_start = "[GetVariableSystem.Set( Concatenate( Concatenate( Concatenate( 'aw_ui_type_match_', IntToString( PdxGuiWidget.AccessParent.AccessParent.GetIndexInDataModel ) ), '_' ), UIntToString( Character.GetID ) ), Select_CString( GreaterThan_int32( PdxGuiWidget.CountVisibleChildren, '(int32)0' ), 'yes', 'no' ) )]"
+										}
+										item = {
+											widget = {
+												size = { 0 0 }
+												visible = "[EqualTo_string( AccoladeType.GetName, GetVariableSystem.Get( Concatenate( 'aw_ui_type_name_', IntToString( PdxGuiWidget.AccessParent.AccessParent.AccessParent.GetIndexInDataModel ) ) ) )]"
+											}
+										}
+									}
+								}
+							}
+							# Keep counters instantiated when the button is hidden. Only each
+							# marker's native eligibility controls CountVisibleChildren.
+							hbox = {
+								name = "aw_type_count"
+								size = { 0 0 }
+								alwaystransparent = yes
+								datamodel = "[MilitaryView.GetKnights]"
+								item = {
+									widget = {
+										name = "aw_eligible_marker"
+										size = { 0 0 }
+										visible = "[And( And( And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ), And( GreaterThanOrEqualTo_int32( Character.GetProwess, '(int32)8' ), Not( Character.IsAcclaimedKnight ) ) ), GetVariableSystem.HasValue( Concatenate( Concatenate( Concatenate( 'aw_ui_type_match_', IntToString( PdxGuiWidget.AccessParent.AccessParent.GetIndexInDataModel ) ), '_' ), UIntToString( Character.GetID ) ), 'yes' ) )]"
+
+									}
+								}
+							}
+							hbox = {
+								name = "aw_type_guest_count"
+								size = { 0 0 }
+								alwaystransparent = yes
+								datamodel = "[MilitaryView.GetKnights]"
+								item = {
+									widget = {
+										size = { 0 0 }
+										visible = "[And( Character.IsGuest, And( And( And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ), And( GreaterThanOrEqualTo_int32( Character.GetProwess, '(int32)8' ), Not( Character.IsAcclaimedKnight ) ) ), GetVariableSystem.HasValue( Concatenate( Concatenate( Concatenate( 'aw_ui_type_match_', IntToString( PdxGuiWidget.AccessParent.AccessParent.GetIndexInDataModel ) ), '_' ), UIntToString( Character.GetID ) ), 'yes' ) ) )]"
+
+									}
+								}
+							}
+							button_standard = {
+								name = "aw_type_select"
+								visible = "[And( Not( GetVariableSystem.Exists( 'aw_ui_selected_type' ) ), GreaterThan_int32( PdxGuiWidget.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren, '(int32)0' ) )]"
+								layoutpolicy_horizontal = fixed
+								size = { 480 108 }
+								margin_bottom = 6
+								onclick = "[GetVariableSystem.Set( 'aw_ui_selected_type', IntToString( PdxGuiWidget.AccessParent.GetIndexInDataModel ) )]"
+								tooltip = "aw_ui_attribute_tooltip"
+								icon = {
+									position = { 10 16 }
+									size = { 60 76 }
+									texture = "[AccoladeType.GetIcon]"
+									using = Mask_Rough_Edges
+									alwaystransparent = yes
+								}
+								text_multi = {
+									position = { 85 12 }
+									size = { 365 0 }
+									autoresize = yes
+									text = "[AccoladeType.GetNameNoTooltip]"
+									using = Font_Size_Medium
+									max_width = 365
+									max_height = 58
+									alwaystransparent = yes
+								}
+								text_single = {
+									name = "aw_type_count_label"
+									position = { 85 78 }
+									text = "aw_ui_candidate_counts"
+									default_format = "#low"
+									max_width = 365
+									alwaystransparent = yes
+								}
+							}
+							vbox = {
+								name = "aw_selected_type_candidates"
+								visible = "[GetVariableSystem.HasValue( 'aw_ui_selected_type', IntToString( PdxGuiWidget.AccessParent.GetIndexInDataModel ) )]"
+								size = { 480 0 }
+								layoutpolicy_horizontal = fixed
+								spacing = 6
+								text_multi = {
+									name = "aw_selected_type_heading"
+									size = { 450 0 }
+									max_width = 450
+									autoresize = yes
+									align = center
+									margin_left = 15
+									text = "[AccoladeType.GetName]"
+									default_format = "#medium"
+									margin_bottom = 8
+								}
+								text_multi = {
+									name = "aw_candidate_help_text"
+									text = "aw_ui_select_candidate"
+									size = { 450 0 }
+									max_width = 450
+									autoresize = yes
+									margin = { 15 5 }
+								}
+								vbox = {
+									name = "aw_candidates"
+									# Build portrait rows only for the selected attribute.
+									datamodel = "[DataModelFirst( MilitaryView.GetKnights, Select_int32( GetVariableSystem.HasValue( 'aw_ui_selected_type', IntToString( PdxGuiWidget.AccessParent.AccessParent.GetIndexInDataModel ) ), GetDataModelSize( MilitaryView.GetKnights ), '(int32)0' ) )]"
+									size = { 480 0 }
+									layoutpolicy_horizontal = fixed
+									spacing = 5
+									item = {
+										aw_candidate_card = {
+											name = "aw_candidate_row"
+											visible = "[And( And( And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ), And( GreaterThanOrEqualTo_int32( Character.GetProwess, '(int32)8' ), Not( Character.IsAcclaimedKnight ) ) ), GetVariableSystem.HasValue( Concatenate( Concatenate( Concatenate( 'aw_ui_type_match_', IntToString( PdxGuiWidget.AccessParent.AccessParent.AccessParent.GetIndexInDataModel ) ), '_' ), UIntToString( Character.GetID ) ), 'yes' ) )]"
+											onclick = "[CreateAccoladeView.SetSelectedKnight( Character.Self )]"
+											onclick = "[CreateAccoladeView.SetSelectedInitialType( AccoladeType.Self )]"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scrollbox = {
+			name = "aw_knight_first_viewport"
+			size = { 530 100 }
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			visible = "[And( GetVariableSystem.HasValue( 'aw_ui_creation_mode', 'knights' ), Not( CreateAccoladeView.GetSelectedInitialType.IsValid ) )]"
+			blockoverride "scrollbox_margins" { margin = { 20 10 } margin_right = 30 }
+			blockoverride "scrollbox_content" {
+				vbox = {
+					name = "aw_knight_first_list"
+					size = { 480 0 }
+				layoutpolicy_horizontal = fixed
+					datamodel = "[MilitaryView.GetKnights]"
+					spacing = 5
+					item = {
+						aw_candidate_card = {
+							name = "aw_knight_first_candidate"
+							visible = "[And( And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ), GreaterThanOrEqualTo_int32( Character.GetProwess, '(int32)8' ) )]"
+							onclick = "[CreateAccoladeView.SetSelectedKnight( Character.Self )]"
+						}
+					}
+				}
+			}
+		}
+
+		scrollbox = {
+			name = "aw_final_types_viewport"
+			size = { 530 100 }
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+
+			visible = "[CreateAccoladeView.GetSelectedInitialType.IsValid]"
+
+			blockoverride "scrollbox_margins" { margin = { 20 10 } margin_right = 30 }
+			blockoverride "scrollbox_content"
+			{
+				fixedgridbox = {
+					name = "types_grid"
+					size = { 480 0 }
+					datamodel = "[CreateAccoladeView.GetPotentialTypes]"
+					layoutpolicy_horizontal = fixed
+					flipdirection = yes
+					datamodel_wrap = 3
+					addcolumn = 160
+					addrow = 164
+
+					item = {
+						widget = {
+							size = { 140 150 }
+
+							button_standard = {
+								name = "aw_final_type_select"
+								size = { 96 120 }
+								parentanchor = top|hcenter
+								onclick = "[CreateAccoladeView.SetSelectedInitialType( AccoladeType.Self )]"
+								tooltipwidget = {
+									object_tooltip_pop_out = {
+										blockoverride "title_text" {
+											margin = { 0 8 }
+											text = "[AccoladeType.GetName]"
+											default_format = "#T"
+										}
+										blockoverride "concept_link" {
+											text = "[accolade_type|E]"
+										}
+										blockoverride "description_text" {
+											text = "CREATE_ACCOLADE_SET_INITIAL_TYPE_TT"
+										}
+									}
+								}
+
+								highlight_icon = {
+									name = "accolade_type_icon"
+									parentanchor = center
+									size = { 92	116 }
+									texture = "[AccoladeType.GetIcon]"
+									using = Mask_Rough_Edges
+								}
+
+								selection_glow = {
+									visible = "[ObjectsEqual( AccoladeType.Self, CreateAccoladeView.GetSelectedInitialType )]"
+								}
+							}
+
+							text_label_center = {
+								name = "accolade_type_name"
+								parentanchor = bottom|hcenter
+								layoutpolicy_horizontal = expanding
+								text = "[AccoladeType.GetNameNoTooltip]"
+								align = center
+								default_format = "#high"
+								max_width = 150
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+types CreateAccoladeWindowTypes
+{
+	type aw_candidate_card = button_standard {
+		size = { 480 138 }
+		layoutpolicy_horizontal = fixed
+		tooltip = "CREATE_ACCOLADE_ASSIGN_TT"
+		using = tooltip_nw
+		blockoverride "Background_Guest_pattern_visible" {
+			visible = "[Character.IsGuest]"
+		}
+		blockoverride "Background_Guest_frame_visible" {
+			visible = "[Character.IsGuest]"
+		}
+		portrait_head = {
+			position = { 4 9 }
+			alpha = "[Select_float( Character.IsKnight, '(float)1.0', '(float)0.6' )]"
+		}
+		widget = {
+			position = { 124 8 }
+			size = { 342 122 }
+			icon = {
+				visible = "[Character.IsKnight]"
+				position = { 0 2 }
+				size = { 26 26 }
+				texture = "gfx/interface/icons/icon_knight_small.dds"
+				alwaystransparent = yes
+			}
+			text_multi = {
+				name = "aw_candidate_name"
+				position = { 32 0 }
+				size = { 252 0 }
+				max_width = 252
+				max_height = 50
+				autoresize = yes
+				text = "[Character.GetNameNoTooltip]"
+				using = Font_Size_Medium
+				alwaystransparent = yes
+			}
+			text_single = {
+				position = { 288 2 }
+				size = { 54 26 }
+				max_width = 54
+				text = "[prowess_i][Character.GetSkill( 'prowess' )]"
+				default_format = "#high"
+				align = right
+				alwaystransparent = yes
+			}
+			text_single = {
+				position = { 0 54 }
+				size = { 342 26 }
+				max_width = 342
+				autoresize = no
+				text = "[Character.GetRelationToString( GetPlayer )]"
+				default_format = "#low"
+				alwaystransparent = yes
+			}
+			widget = {
+				name = "aw_candidate_controls"
+				position = { 0 86 }
+				size = { 280 33 }
+				visible = "[Not( Character.IsGuest )]"
+				button_standard = {
+					position = { 0 0 }
+					size = { 90 33 }
+					onclick = "[MilitaryView.SetKnightForced( Character.Self )]"
+					down = "[Character.IsKnightForced]"
+					alwaystransparent = "[Character.IsKnightForced]"
+					text = "KNIGHTS_VIEW_FORCE"
+					tooltip = "KNIGHTS_VIEW_TITLE_FORCE_TT"
+					using = tooltip_se
+				}
+				button_standard = {
+					position = { 95 0 }
+					size = { 90 33 }
+					onclick = "[MilitaryView.SetKnightDefault( Character.Self )]"
+					down = "[Character.IsKnightDefault]"
+					alwaystransparent = "[Character.IsKnightDefault]"
+					text = "KNIGHTS_VIEW_ALLOW"
+					tooltip = "KNIGHTS_VIEW_TITLE_BY_PROWESS_TT"
+					using = tooltip_se
+				}
+				button_standard = {
+					position = { 190 0 }
+					size = { 90 33 }
+					onclick = "[MilitaryView.SetKnightDisallowed( Character.Self )]"
+					down = "[Character.IsKnightDisallowed]"
+					alwaystransparent = "[Character.IsKnightDisallowed]"
+					enabled = "[Not( Character.IsAcclaimedKnight )]"
+					text = "KNIGHTS_VIEW_FORBID"
+					tooltip = "[SelectLocalization( Character.IsAcclaimedKnight, 'CANNOT_FORBID_ACCLAIMED_KNIGHT', 'KNIGHTS_VIEW_TITLE_FORBID_TT' )]"
+					using = tooltip_se
+				}
+			}
+			button_standard = {
+				position = { 0 86 }
+				size = { 280 33 }
+				visible = "[And( Character.IsGuest, Character.IsPlayerInteractionShown( 'recruit_guest_interaction' ) )]"
+				enabled = "[Character.IsPlayerInteractionValid( 'recruit_guest_interaction' )]"
+				onclick = "[Character.OpenPlayerInteraction( 'recruit_guest_interaction' )]"
+				text = "[Character.GetPlayerInteractionName( 'recruit_guest_interaction' )]"
+				tooltip = "[Character.GetPlayerInteractionTooltip( 'recruit_guest_interaction' )]"
+				using = tooltip_se
+			}
+			icon = {
+				position = { 308 87 }
+				size = { 30 30 }
+				visible = "[And( HasDlcFeature( 'accolades' ), And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ) )]"
+				texture = "gfx/interface/icons/icon_knight_acclaimed.dds"
+				tooltipwidget = { using = accolade_types_tooltip }
+				icon = {
+					visible = "[Not( KnightsView.CanBeAcclaimedKnight( Character.Self ) )]"
+					size = { 25 25 }
+					position = { 10 10 }
+					texture = "gfx/interface/icons/symbols/icon_cross.dds"
+				}
+			}
+		}
+	}
+
+	type empty_accolade_type_box = hbox {
+		layoutpolicy_horizontal = expanding
+		spacing = 10
+
+		text_single = {
+			layoutpolicy_horizontal = expanding
+			text = "CREATE_ACCOLADE_EMPTY_TYPE"
+			align = nobaseline
+		}
+
+		debug_square = {
+			size = { 30 30 }
+		}
+	}
+}
+

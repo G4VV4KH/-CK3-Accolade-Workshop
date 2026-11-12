@@ -1,0 +1,13 @@
+﻿l_russian:
+ rule_aw_max_accolade_rank:0 "Максимальный ранг акколады"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "Акколады могут достигнуть 3-го ранга (600 славы). Правило действует для игроков и ИИ. Выберите его при начале новой кампании."
+ setting_aw_max_accolade_rank_6:0 "6 (По умолчанию)"
+ setting_aw_max_accolade_rank_6_desc:0 "Акколады могут достигнуть обычного максимума: 6-го ранга (2100 славы). Правило действует для игроков и ИИ. Выберите его при начале новой кампании."
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "Акколады могут достигнуть 9-го ранга (4500 славы), позволяя развить три атрибута до III уровня. Правило действует для игроков и ИИ. Выберите его при начале новой кампании."
+ aw_rank_progress_limit:0 "Максимальный ранг: [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · Слава: [Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high Легендарная#! #weak (Ранг 7)#!"
+ aw_rank_flavor_8:0 "#high Бессмертная#! #weak (Ранг 8)#!"
+ aw_rank_flavor_9:0 "#high Мифическая#! #weak (Ранг 9)#!"
+ aw_rank_maximum_glory_tt:0 "#T Максимальный ранг акколады#!\nВ этой кампании акколады ограничены рангом [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] ([Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0] славы).\n\nЭта акколада достигла предела. Лишняя слава не накапливается."

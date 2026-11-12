@@ -1,0 +1,7 @@
+﻿aw_max_accolade_rank = {
+	categories = { game_modes }
+	default = aw_max_accolade_rank_6
+	aw_max_accolade_rank_3 = { }
+	aw_max_accolade_rank_6 = { }
+	aw_max_accolade_rank_9 = { }
+}

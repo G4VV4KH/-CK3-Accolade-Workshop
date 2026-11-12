@@ -1,0 +1,13 @@
+﻿l_polish:
+ aw_ui_attributes_header:0 "Atrybuty wyróżnień"
+ aw_ui_choose_attribute:0 "Wybierz pożądany atrybut, a następnie odpowiedniego rycerza. Lista obejmuje również kwalifikujących się gości dworu; trzeba ich zwerbować przed utworzeniem wyróżnienia."
+ aw_ui_back_to_attributes:0 "Wróć do atrybutów"
+ aw_ui_candidate_counts:0 "Kandydaci: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  W tym goście: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\nWybierz, aby wyświetlić odpowiednich rycerzy i gości."
+ aw_ui_select_candidate:0 "Wybierz kandydata, aby otworzyć standardowe okno tworzenia z wybranym atrybutem. Koszt werbunku gości pozostaje bez zmian."
+ aw_ui_choose_method:0 "Wybierz sposób tworzenia wyróżnienia."
+ aw_ui_knight_first:0 "Wybierz rycerza"
+ aw_ui_knight_first_desc:0 "Wybierz rycerza lub gościa, a następnie dostępny atrybut."
+ aw_ui_attribute_first:0 "Wybierz atrybut"
+ aw_ui_attribute_first_desc:0 "Przejrzyj atrybuty i liczbę kandydatów, a następnie wybierz odpowiedniego rycerza lub gościa."
+ aw_ui_back_to_methods:0 "Wybierz inny sposób"

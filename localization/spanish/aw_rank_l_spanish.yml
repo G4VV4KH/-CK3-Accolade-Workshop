@@ -1,0 +1,13 @@
+﻿l_spanish:
+ rule_aw_max_accolade_rank:0 "Grado máximo de galardón"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "Los galardones pueden alcanzar el grado 3 (600 de gloria). Se aplica a jugadores e IA. Elige esta regla al iniciar una nueva campaña."
+ setting_aw_max_accolade_rank_6:0 "6 (predeterminado)"
+ setting_aw_max_accolade_rank_6_desc:0 "Los galardones pueden alcanzar el máximo habitual: grado 6 (2100 de gloria). Se aplica a jugadores e IA. Elige esta regla al iniciar una nueva campaña."
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "Los galardones pueden alcanzar el grado 9 (4500 de gloria), suficiente para desarrollar tres atributos hasta el nivel III. Se aplica a jugadores e IA. Elige esta regla al iniciar una nueva campaña."
+ aw_rank_progress_limit:0 "Grado máximo: [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · Gloria: [Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high Legendario#! #weak (Grado 7)#!"
+ aw_rank_flavor_8:0 "#high Inmortal#! #weak (Grado 8)#!"
+ aw_rank_flavor_9:0 "#high Mítico#! #weak (Grado 9)#!"
+ aw_rank_maximum_glory_tt:0 "#T Grado máximo de galardón#!\nEsta campaña limita los galardones al grado [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] ([Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0] de gloria).\n\nEste galardón ha alcanzado el límite. La gloria sobrante no se acumula."

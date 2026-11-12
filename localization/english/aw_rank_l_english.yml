@@ -1,0 +1,13 @@
+﻿l_english:
+ rule_aw_max_accolade_rank:0 "Maximum Accolade Rank"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "Accolades can reach rank 3 (600 Glory). Applies to players and AI. Choose this rule when starting a new campaign."
+ setting_aw_max_accolade_rank_6:0 "6 (Default)"
+ setting_aw_max_accolade_rank_6_desc:0 "Accolades can reach the vanilla maximum: rank 6 (2100 Glory). Applies to players and AI. Choose this rule when starting a new campaign."
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "Accolades can reach rank 9 (4500 Glory), enough to develop three attributes to level III. Applies to players and AI. Choose this rule when starting a new campaign."
+ aw_rank_progress_limit:0 "Maximum rank: [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · Glory: [Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high Legendary#! #weak (Rank 7)#!"
+ aw_rank_flavor_8:0 "#high Immortal#! #weak (Rank 8)#!"
+ aw_rank_flavor_9:0 "#high Mythic#! #weak (Rank 9)#!"
+ aw_rank_maximum_glory_tt:0 "#T Maximum Accolade Rank#!\nThis campaign limits accolades to rank [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] ([Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0] Glory).\n\nThis accolade has reached that limit. Excess Glory is not stored."

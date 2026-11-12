@@ -1,0 +1,13 @@
+﻿l_japanese:
+ aw_ui_attributes_header:0 "叙勲属性"
+ aw_ui_choose_attribute:0 "希望する属性を選び、その後で適任の騎士を選択してください。一覧には条件を満たす宮廷の客人も含まれます。客人に叙勲するには、先に雇用する必要があります。"
+ aw_ui_back_to_attributes:0 "属性一覧に戻る"
+ aw_ui_candidate_counts:0 "候補者：[PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  うち客人：[PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\n選択すると、適任の騎士と客人が表示されます。"
+ aw_ui_select_candidate:0 "候補者を選ぶと、この属性を選択した状態で通常の創設画面が開きます。客人の雇用コストは通常どおりです。"
+ aw_ui_choose_method:0 "叙勲の創設方法を選択してください。"
+ aw_ui_knight_first:0 "騎士を選択"
+ aw_ui_knight_first_desc:0 "騎士または客人を選び、その後で利用可能な属性を選択します。"
+ aw_ui_attribute_first:0 "属性を選択"
+ aw_ui_attribute_first_desc:0 "属性と候補者数を確認し、その後で適任の騎士または客人を選択します。"
+ aw_ui_back_to_methods:0 "別の方法を選択"

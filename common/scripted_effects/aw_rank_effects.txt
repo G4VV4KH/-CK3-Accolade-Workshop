@@ -1,0 +1,23 @@
+﻿# Accolade scope, called synchronously by on_accolade_glory_change.
+# New campaigns only: native scripting exposes the glory delta but not its
+# current total. Creation initializes the persistent mirror at STARTING_GLORY.
+# No monthly pulse or player-only GUI callback is used; AI uses the same hook.
+aw_rank_enforce_limit_effect = {
+	set_variable = {
+		name = aw_rank_current_glory
+		value = aw_rank_changed_glory_value
+	}
+	if = {
+		limit = { var:aw_rank_current_glory > aw_rank_glory_limit_value }
+		set_variable = { name = aw_rank_correcting_glory value = yes }
+		add_glory = {
+			value = aw_rank_excess_glory_value
+			multiply = -1
+		}
+		set_variable = {
+			name = aw_rank_current_glory
+			value = aw_rank_glory_limit_value
+		}
+		remove_variable = aw_rank_correcting_glory
+	}
+}

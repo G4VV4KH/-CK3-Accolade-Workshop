@@ -1,0 +1,37 @@
+﻿aw_rank_limit_value = {
+	value = 6
+	if = {
+		limit = { has_game_rule = aw_max_accolade_rank_3 }
+		value = 3
+	}
+	else_if = {
+		limit = { has_game_rule = aw_max_accolade_rank_9 }
+		value = 9
+	}
+}
+
+aw_rank_glory_limit_value = {
+	value = 2100
+	if = {
+		limit = { has_game_rule = aw_max_accolade_rank_3 }
+		value = 600
+	}
+	else_if = {
+		limit = { has_game_rule = aw_max_accolade_rank_9 }
+		value = 4500
+	}
+}
+
+# Accolade scope. Native glory has no upper bound; the last rank threshold
+# does not clamp it. Preserve the full callback delta, then subtract the excess.
+aw_rank_changed_glory_value = {
+	value = var:aw_rank_current_glory
+	add = scope:glory
+	min = 0
+}
+
+aw_rank_excess_glory_value = {
+	value = var:aw_rank_current_glory
+	subtract = aw_rank_glory_limit_value
+	min = 0
+}

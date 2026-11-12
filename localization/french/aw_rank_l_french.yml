@@ -1,0 +1,13 @@
+﻿l_french:
+ rule_aw_max_accolade_rank:0 "Rang de distinction maximal"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "Les distinctions peuvent atteindre le rang 3 (600 de gloire). Cette règle s’applique aux joueurs et à l’IA. Choisissez-la au début d’une nouvelle campagne."
+ setting_aw_max_accolade_rank_6:0 "6 (par défaut)"
+ setting_aw_max_accolade_rank_6_desc:0 "Les distinctions peuvent atteindre le maximum habituel : le rang 6 (2100 de gloire). Cette règle s’applique aux joueurs et à l’IA. Choisissez-la au début d’une nouvelle campagne."
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "Les distinctions peuvent atteindre le rang 9 (4500 de gloire), permettant de développer trois attributs jusqu’au niveau III. Cette règle s’applique aux joueurs et à l’IA. Choisissez-la au début d’une nouvelle campagne."
+ aw_rank_progress_limit:0 "Rang maximal : [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · Gloire : [Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high Légendaire#! #weak (Rang 7)#!"
+ aw_rank_flavor_8:0 "#high Immortelle#! #weak (Rang 8)#!"
+ aw_rank_flavor_9:0 "#high Mythique#! #weak (Rang 9)#!"
+ aw_rank_maximum_glory_tt:0 "#T Rang de distinction maximal#!\nCette campagne limite les distinctions au rang [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] ([Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0] de gloire).\n\nCette distinction a atteint la limite. L’excédent de gloire n’est pas conservé."

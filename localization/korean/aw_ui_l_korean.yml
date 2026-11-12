@@ -1,0 +1,13 @@
+﻿l_korean:
+ aw_ui_attributes_header:0 "표창 속성"
+ aw_ui_choose_attribute:0 "원하는 속성을 선택한 다음 적합한 기사를 선택하십시오. 목록에는 조건을 충족하는 궁정 문객도 포함됩니다. 문객은 표창 생성 전에 영입해야 합니다."
+ aw_ui_back_to_attributes:0 "속성 목록으로 돌아가기"
+ aw_ui_candidate_counts:0 "후보: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  그중 문객: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\n선택하면 적합한 기사와 문객이 표시됩니다."
+ aw_ui_select_candidate:0 "후보를 선택하면 해당 속성이 선택된 상태로 기본 생성 창이 열립니다. 문객 영입 비용은 기존과 같습니다."
+ aw_ui_choose_method:0 "표창 생성 방식을 선택하십시오."
+ aw_ui_knight_first:0 "기사 선택"
+ aw_ui_knight_first_desc:0 "기사 또는 문객을 선택한 다음 이용 가능한 속성을 선택합니다."
+ aw_ui_attribute_first:0 "속성 선택"
+ aw_ui_attribute_first_desc:0 "속성과 후보 수를 살펴본 다음 적합한 기사 또는 문객을 선택합니다."
+ aw_ui_back_to_methods:0 "다른 방식 선택"

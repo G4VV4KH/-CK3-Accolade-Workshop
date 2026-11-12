@@ -1,0 +1,13 @@
+﻿l_english:
+ aw_ui_attributes_header:0 "Accolade Attributes"
+ aw_ui_choose_attribute:0 "Choose the attribute you want, then choose a suitable knight. The list includes eligible court guests; they must be recruited before the Accolade can be created."
+ aw_ui_back_to_attributes:0 "Back to attributes"
+ aw_ui_candidate_counts:0 "Candidates: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  Guests: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\nSelect to see suitable knights and guests."
+ aw_ui_select_candidate:0 "Choose a candidate to continue to the standard creation window with this attribute selected. Guests keep the usual recruitment cost."
+ aw_ui_choose_method:0 "Choose how to create your Accolade."
+ aw_ui_knight_first:0 "Choose a Knight"
+ aw_ui_knight_first_desc:0 "Choose a knight or guest, then select an available attribute."
+ aw_ui_attribute_first:0 "Choose an Attribute"
+ aw_ui_attribute_first_desc:0 "Browse attributes and candidate counts, then choose a suitable knight or guest."
+ aw_ui_back_to_methods:0 "Choose another method"

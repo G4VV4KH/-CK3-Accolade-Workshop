@@ -1,0 +1,76 @@
+﻿# Override only the vanilla rank-change effect. The outer native operation
+# emits the real final rank change; the nested cap correction must not send
+# a false rank-loss notification or duplicate memories. aw loads after accolade.
+on_accolade_rank_change = {
+	effect = {
+		if = {
+			limit = { NOT = { has_variable = aw_rank_correcting_glory } }
+			save_scope_as = changing_accolade
+			acclaimed_knight = {
+				save_scope_as = acclaimed_knight
+			}
+			accolade_owner = {
+				# level up notification
+				if = {
+					limit = {
+						scope:positive = yes
+					}
+					trigger_event = accolade.0001
+				}
+				# level down notification
+				else = {
+					trigger_event = accolade.0002
+				}
+			}
+			
+			if = {
+				limit = {
+					scope:changing_accolade = {
+						accolade_rank >= 1
+						acclaimed_knight = {
+							exists = this
+							NOT = {
+								any_memory = {
+									memory_type = accolade_ranked_up
+								}
+							}
+						}
+					}
+					scope:positive = yes
+				}
+				scope:changing_accolade.acclaimed_knight = {
+					create_character_memory = {
+						type = accolade_ranked_up
+						participants = {
+							liege = root.accolade_owner
+						}
+					}
+				}
+			}
+		
+		}
+	}
+}
+
+# Append named handlers, preserving all vanilla accolade notifications/memories.
+on_accolade_created = {
+	on_actions = { aw_rank_created }
+}
+
+aw_rank_created = {
+	effect = {
+		set_variable = { name = aw_rank_current_glory value = 100 }
+	}
+}
+
+on_accolade_glory_change = {
+	on_actions = { aw_rank_glory_changed }
+}
+
+aw_rank_glory_changed = {
+	trigger = {
+		has_variable = aw_rank_current_glory
+		NOT = { has_variable = aw_rank_correcting_glory }
+	}
+	effect = { aw_rank_enforce_limit_effect = yes }
+}

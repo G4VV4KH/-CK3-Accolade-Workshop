@@ -1,0 +1,13 @@
+﻿l_french:
+ aw_ui_attributes_header:0 "Attributs de distinction"
+ aw_ui_choose_attribute:0 "Choisissez l’attribut souhaité, puis un chevalier adapté. La liste comprend les invités de la cour admissibles ; vous devez les recruter avant de créer la distinction."
+ aw_ui_back_to_attributes:0 "Retour aux attributs"
+ aw_ui_candidate_counts:0 "Candidats : [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  Dont invités : [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\nSélectionnez cet attribut pour afficher les chevaliers et les invités adaptés."
+ aw_ui_select_candidate:0 "Choisissez un candidat pour ouvrir la fenêtre de création habituelle avec cet attribut sélectionné. Le coût de recrutement des invités reste inchangé."
+ aw_ui_choose_method:0 "Choisissez comment créer votre distinction."
+ aw_ui_knight_first:0 "Choisir un chevalier"
+ aw_ui_knight_first_desc:0 "Choisissez un chevalier ou un invité, puis un attribut disponible."
+ aw_ui_attribute_first:0 "Choisir un attribut"
+ aw_ui_attribute_first_desc:0 "Parcourez les attributs et le nombre de candidats, puis choisissez un chevalier ou un invité adapté."
+ aw_ui_back_to_methods:0 "Choisir une autre méthode"

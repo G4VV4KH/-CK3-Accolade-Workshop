@@ -1,0 +1,13 @@
+﻿l_polish:
+ rule_aw_max_accolade_rank:0 "Maksymalny stopień wyróżnienia"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "Wyróżnienia mogą osiągnąć stopień 3 (600 chwały). Dotyczy graczy i SI. Wybierz tę zasadę na początku nowej kampanii."
+ setting_aw_max_accolade_rank_6:0 "6 (domyślnie)"
+ setting_aw_max_accolade_rank_6_desc:0 "Wyróżnienia mogą osiągnąć standardowy maksymalny stopień: 6 (2100 chwały). Dotyczy graczy i SI. Wybierz tę zasadę na początku nowej kampanii."
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "Wyróżnienia mogą osiągnąć stopień 9 (4500 chwały), pozwalający rozwinąć trzy atrybuty do poziomu III. Dotyczy graczy i SI. Wybierz tę zasadę na początku nowej kampanii."
+ aw_rank_progress_limit:0 "Maksymalny stopień: [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · Chwała: [Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high Legendarne#! #weak (Stopień 7)#!"
+ aw_rank_flavor_8:0 "#high Nieśmiertelne#! #weak (Stopień 8)#!"
+ aw_rank_flavor_9:0 "#high Mityczne#! #weak (Stopień 9)#!"
+ aw_rank_maximum_glory_tt:0 "#T Maksymalny stopień wyróżnienia#!\nW tej kampanii wyróżnienia są ograniczone do stopnia [Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] ([Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0] chwały).\n\nTo wyróżnienie osiągnęło limit. Nadmiar chwały nie jest gromadzony."

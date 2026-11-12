@@ -1,0 +1,86 @@
+Accolade Workshop
+
+At a glance
+
+- 🟢 Version 0.1.0 · Targets CK3 1.20.1.2.
+- 🟢 Standalone mod; requires Tours & Tournaments.
+- 🟢 Create an accolade by choosing its attribute or its knight first.
+- 🟢 Languages: English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese and Spanish.
+- 🔴 Start a new campaign. Existing accolades have no migration for the rank-cap system.
+- 🔴 Changes accolade ranks and two interface windows; overlapping mods need a compatibility patch.
+
+Choose the honour, then the knight
+
+Looking for a particular accolade? Browse the attributes your court can provide, see how many candidates qualify, and choose the knight who will carry it. The familiar knight-first route remains available alongside it.
+
+Two ways to create an accolade
+
+The create button opens a choice of starting point:
+
+- Attribute first: browse available initial attributes with candidate and guest counts. Select an attribute to see the eligible knights and guests.
+- Knight first: use the familiar candidate list, then choose an eligible initial attribute.
+
+Both routes finish in the normal creation panel. The game's eligibility checks, recruitment costs, knight controls and accolade creation costs still apply. Guests must be recruited before creating their accolade.
+
+Set the highest rank
+
+The Maximum accolade rank game rule offers 3, 6 (default), or 9, for players and AI. Glory is capped at the chosen rank's threshold: 600, 2,100, or 4,500 respectively.
+
+Ranks 7–9 provide further attribute upgrades. Accolades still have at most three attributes, each with three levels; the game's Men-at-Arms attribute restriction remains.
+
+Getting started
+
+1. Enable the mod and start a new campaign. Choose the maximum accolade rank in the game rules.
+2. Open the Military window, manage your knights and accolades, and click the accolade creation button.
+3. Choose your starting point, select a candidate and attribute, then confirm in the normal creation panel.
+
+Compatibility and load order
+
+Requires Tours & Tournaments; no other mod is required. Targets CK3 1.20.1.2.
+
+Replaces window_create_accolade.gui and window_accolade.gui, changes accolade rank definitions, and adjusts the accolade rank-change notification hook. Mods changing those same elements need a merged compatibility patch; load order alone does not merge them. Total conversions and multiplayer compatibility are not established.
+
+Saves and known limits
+
+Use a new campaign. Existing accolades do not have the tracked Glory baseline required by the cap system. Migration and mid-campaign removal are not supported; keep a backup before changing a campaign's mod list.
+
+Ranks 7–9 reuse the rank-6 badge ornament, with their own displayed rank names and numbers.
+
+Feedback and support
+
+Include your CK3 version, mod list, rank rule, chosen creation route and steps to reproduce the problem.
+
+- Report an issue on GitHub: https://github.com/G4VV4KH/-CK3-Accolade-Workshop/issues
+- Email: g4vv4kh@gmail.com
+
+Want to support my work? Donate on Ko-fi 💛: https://ko-fi.com/g4vv4kh
+
+Find this mod elsewhere
+
+- Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3836819350
+- Paradox Mods: https://mods.paradoxplaza.com/mods/167282/Any
+- Nexus Mods: https://www.nexusmods.com/crusaderkings3/mods/443
+- GitHub: https://github.com/G4VV4KH/-CK3-Accolade-Workshop
+
+My other mods
+
+Standalone mods
+
+- Parley: The Negotiating Table: https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081 — negotiate diplomatic agreements.
+- Marriage Calculation Assistant: https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163 — compare and sort marriage candidates.
+- Your Own Hegemony: https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582 — found a custom hegemony.
+- Vassalization Extended: https://steamcommunity.com/sharedfiles/filedetails/?id=3813943691 — choose Forced Vassalization terms without a county limit.
+- Court Automation: https://steamcommunity.com/sharedfiles/filedetails/?id=3814028714 — automate court positions and recruit courtiers or knights.
+- Nomad Autorefill: https://steamcommunity.com/sharedfiles/filedetails/?id=3814793283 — automatically reinforce nomadic Men-at-Arms using herd or gold.
+- Tax Collection Automation: https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275 — automatically assign tax collectors and optimize tax jurisdictions.
+- Council Assignment Automation: https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627 — automate council appointments and optimize councillor assignments.
+- Strategist Assistant: https://steamcommunity.com/sharedfiles/filedetails/?id=3827659479 — plan armies, recruitment and wars.
+- Title Domination: https://steamcommunity.com/sharedfiles/filedetails/?id=3828276945 — proclaim uncreated titles through diplomacy and war.
+
+Compatibility patches
+
+- [compatch] CAA + CA: https://steamcommunity.com/sharedfiles/filedetails/?id=3816373375 — use Council Assignment Automation and Council Autopilot together.
+
+Credits
+
+Cover artwork was generated with AI. Interface integration and rank-badge ornaments adapt Crusader Kings III assets by Paradox Interactive.

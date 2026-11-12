@@ -1,0 +1,13 @@
+﻿l_german:
+ aw_ui_attributes_header:0 "Auszeichnungsattribute"
+ aw_ui_choose_attribute:0 "Wählt das gewünschte Attribut und anschließend einen geeigneten Ritter. Die Liste enthält auch geeignete Hofgäste; diese müssen vor dem Schaffen der Auszeichnung angeworben werden."
+ aw_ui_back_to_attributes:0 "Zurück zu den Attributen"
+ aw_ui_candidate_counts:0 "Kandidaten: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  Davon Gäste: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\nAuswählen, um geeignete Ritter und Gäste anzuzeigen."
+ aw_ui_select_candidate:0 "Wählt einen Kandidaten, um das übliche Erstellungsfenster mit diesem ausgewählten Attribut zu öffnen. Die Anwerbungskosten für Gäste bleiben unverändert."
+ aw_ui_choose_method:0 "Wählt, wie Ihr Eure Auszeichnung schaffen möchtet."
+ aw_ui_knight_first:0 "Ritter auswählen"
+ aw_ui_knight_first_desc:0 "Wählt einen Ritter oder Gast und anschließend ein verfügbares Attribut."
+ aw_ui_attribute_first:0 "Attribut auswählen"
+ aw_ui_attribute_first_desc:0 "Seht Euch Attribute und Kandidatenzahlen an und wählt anschließend einen geeigneten Ritter oder Gast."
+ aw_ui_back_to_methods:0 "Andere Methode wählen"

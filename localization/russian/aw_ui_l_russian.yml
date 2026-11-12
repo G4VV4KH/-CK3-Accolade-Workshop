@@ -1,0 +1,13 @@
+﻿l_russian:
+ aw_ui_attributes_header:0 "Атрибуты акколад"
+ aw_ui_choose_attribute:0 "Выберите нужный атрибут, а затем подходящего рыцаря. В список входят подходящие гости двора; перед созданием акколады их нужно нанять."
+ aw_ui_back_to_attributes:0 "К списку атрибутов"
+ aw_ui_candidate_counts:0 "Кандидаты: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  Из них гости: [PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\nВыберите, чтобы увидеть подходящих рыцарей и гостей."
+ aw_ui_select_candidate:0 "Выберите кандидата, чтобы открыть обычное окно создания с выбранным атрибутом. Стоимость найма гостей остаётся прежней."
+ aw_ui_choose_method:0 "Выберите способ создания акколады."
+ aw_ui_knight_first:0 "Выбрать рыцаря"
+ aw_ui_knight_first_desc:0 "Выберите рыцаря или гостя, затем доступный ему атрибут."
+ aw_ui_attribute_first:0 "Выбрать атрибут"
+ aw_ui_attribute_first_desc:0 "Просмотрите атрибуты и число кандидатов, затем выберите подходящего рыцаря или гостя."
+ aw_ui_back_to_methods:0 "К выбору способа"

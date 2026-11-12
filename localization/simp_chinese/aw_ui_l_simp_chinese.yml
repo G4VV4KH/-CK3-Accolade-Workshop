@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+ aw_ui_attributes_header:0 "勋号属性"
+ aw_ui_choose_attribute:0 "先选择需要的属性，再选择合适的骑士。列表包含符合条件的宫廷宾客；创建勋号前须先招募他们。"
+ aw_ui_back_to_attributes:0 "返回属性列表"
+ aw_ui_candidate_counts:0 "候选人：[PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_count' ).CountVisibleChildren|V]  •  其中宾客：[PdxGuiWidget.AccessParent.AccessParent.FindChild( 'aw_type_guest_count' ).CountVisibleChildren|V]"
+ aw_ui_attribute_tooltip:0 "#T [AccoladeType.GetNameNoTooltip]#!\n[AccoladeType.BuildEffects]\n\n选择此属性，查看合适的骑士和宾客。"
+ aw_ui_select_candidate:0 "选择候选人后，将打开原版创建窗口，并自动选中此属性。招募宾客仍需支付通常的费用。"
+ aw_ui_choose_method:0 "选择创建勋号的方式。"
+ aw_ui_knight_first:0 "选择骑士"
+ aw_ui_knight_first_desc:0 "先选择骑士或宾客，再选择可用的属性。"
+ aw_ui_attribute_first:0 "选择属性"
+ aw_ui_attribute_first_desc:0 "浏览属性和候选人数，再选择合适的骑士或宾客。"
+ aw_ui_back_to_methods:0 "选择其他方式"

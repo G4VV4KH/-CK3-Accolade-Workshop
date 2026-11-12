@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+ rule_aw_max_accolade_rank:0 "勋号等级上限"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "勋号最高可达到3级（600荣誉值）。适用于玩家和AI。请在开始新战役时选择此规则。"
+ setting_aw_max_accolade_rank_6:0 "6（默认）"
+ setting_aw_max_accolade_rank_6_desc:0 "勋号最高可达到原版上限：6级（2100荣誉值）。适用于玩家和AI。请在开始新战役时选择此规则。"
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "勋号最高可达到9级（4500荣誉值），足以将三个属性都提升至III级。适用于玩家和AI。请在开始新战役时选择此规则。"
+ aw_rank_progress_limit:0 "等级上限：[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · 荣誉值：[Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high 传奇#! #weak （7级）#!"
+ aw_rank_flavor_8:0 "#high 不朽#! #weak （8级）#!"
+ aw_rank_flavor_9:0 "#high 神话#! #weak （9级）#!"
+ aw_rank_maximum_glory_tt:0 "#T 勋号等级上限#!\n本战役中，勋号最高可达到[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0]级（[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]荣誉值）。\n\n此勋号已达到上限。超出的荣誉值不会累积。"

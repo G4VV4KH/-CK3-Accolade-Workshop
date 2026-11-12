@@ -1,0 +1,13 @@
+﻿l_japanese:
+ rule_aw_max_accolade_rank:0 "叙勲の最大ランク"
+ setting_aw_max_accolade_rank_3:0 "3"
+ setting_aw_max_accolade_rank_3_desc:0 "叙勲はランク3（栄光600）まで上昇します。プレイヤーとAIに適用されます。新しいキャンペーンの開始時に選択してください。"
+ setting_aw_max_accolade_rank_6:0 "6（デフォルト）"
+ setting_aw_max_accolade_rank_6_desc:0 "叙勲は通常の上限であるランク6（栄光2100）まで上昇します。プレイヤーとAIに適用されます。新しいキャンペーンの開始時に選択してください。"
+ setting_aw_max_accolade_rank_9:0 "9"
+ setting_aw_max_accolade_rank_9_desc:0 "叙勲はランク9（栄光4500）まで上昇し、3つの属性をレベルIIIまで強化できます。プレイヤーとAIに適用されます。新しいキャンペーンの開始時に選択してください。"
+ aw_rank_progress_limit:0 "最大ランク：[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0] · 栄光：[Accolade.GetGlory|0]/[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]"
+ aw_rank_flavor_7:0 "#high 伝説的#! #weak （ランク7）#!"
+ aw_rank_flavor_8:0 "#high 不滅#! #weak （ランク8）#!"
+ aw_rank_flavor_9:0 "#high 神話的#! #weak （ランク9）#!"
+ aw_rank_maximum_glory_tt:0 "#T 叙勲の最大ランク#!\nこのキャンペーンでは、叙勲の上限はランク[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_limit_value')|0]（栄光[Accolade.GetOwner.MakeScope.ScriptValue('aw_rank_glory_limit_value')|0]）です。\n\nこの叙勲は上限に達しています。超過した栄光は蓄積されません。"

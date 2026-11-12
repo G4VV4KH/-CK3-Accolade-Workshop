@@ -1,0 +1,4 @@
+﻿# Vanilla ranks 1-6 are unchanged. The game rule caps glory synchronously.
+NAccolade = {
+	ACCOLADE_GLORY_LEVELS = { 100 300 600 1000 1500 2100 2800 3600 4500 }
+}
