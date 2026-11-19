@@ -2,7 +2,7 @@
 
 ## At a glance
 
-- 🟢 **Version 0.1.0** · Targets CK3 **1.20.1.2**.
+- 🟢 **Version 0.1.1** · Targets CK3 **1.21.0.3**.
 - 🟢 **Standalone mod; requires Tours & Tournaments.**
 - 🟢 **Create an accolade by choosing its attribute or its knight first.**
 - 🟢 **Languages:** English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese and Spanish.
@@ -36,7 +36,7 @@ Ranks 7–9 provide further attribute upgrades. Accolades still have at most thr
 
 ## Compatibility and load order
 
-Requires **Tours & Tournaments**; no other mod is required. Targets **CK3 1.20.1.2**.
+Requires **Tours & Tournaments**; no other mod is required. Targets **CK3 1.21.0.3**.
 
 Replaces `window_create_accolade.gui` and `window_accolade.gui`, changes accolade rank definitions, and adjusts the accolade rank-change notification hook. Mods changing those same elements need a merged compatibility patch; load order alone does not merge them. Total conversions and multiplayer compatibility are not established.
 
