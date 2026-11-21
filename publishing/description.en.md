@@ -76,6 +76,7 @@ Include your CK3 version, mod list, rank rule, chosen creation route and steps t
 - [Council Assignment Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627) — automate council appointments and optimize councillor assignments.
 - [Strategist Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3827659479) — plan armies, recruitment and wars.
 - [Title Domination](https://steamcommunity.com/sharedfiles/filedetails/?id=3828276945) — proclaim uncreated titles through diplomacy and war.
+- [Traitor Trials](https://steamcommunity.com/sharedfiles/filedetails/?id=3843236809) — judge defeated rebels after a war.
 
 ### Compatibility patches
 
