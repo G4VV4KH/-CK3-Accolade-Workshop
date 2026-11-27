@@ -81,6 +81,7 @@ Include your CK3 version, mod list, rank rule, chosen creation route and steps t
 ### Compatibility patches
 
 - [[compatch] CAA + CA](https://steamcommunity.com/sharedfiles/filedetails/?id=3816373375) — use Council Assignment Automation and Council Autopilot together.
+- [[compatch] SA + NA](https://steamcommunity.com/sharedfiles/filedetails/?id=3846587662) — use Strategist Assistant and Nomad Autorefill in the same Military window.
 
 ## Credits
 
